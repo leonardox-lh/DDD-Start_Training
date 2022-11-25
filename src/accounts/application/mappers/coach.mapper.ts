@@ -95,7 +95,7 @@ export class CoachMapper {
     dto.lastName = row.lastName;
     dto.gender=row.gender;
     dto.card=row.card;
-    dto.salary=row.card;
+    dto.salary=row.salary;
     return dto;
   }
 }

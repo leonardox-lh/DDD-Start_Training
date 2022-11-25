@@ -7,7 +7,6 @@ import { Dni } from '../../../../shared/domain/values/dni.value';
 import { Card } from '../../../../shared/domain/values/card.value';
 import { Gender } from '../../../../shared/domain/values/gender.value';
 import { Account } from './account.root.entity';
-import { GeneratedMetadataArgs } from 'typeorm/metadata-args/GeneratedMetadataArgs';
 
 export class Client extends Account {
   private name: Name;

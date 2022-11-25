@@ -20,10 +20,14 @@ import { CoachEntityRepository } from './infrastructure/persistence/repositories
 import { GetCoachAccountsHandler } from './application/handlers/queries/get-coach-accounts.handler';
 import { CLIENT_REPOSITORY } from './domain/aggregates/account/client.repository';
 import { COACH_REPOSITORY } from './domain/aggregates/account/coach.repository';
+import { GetClientGenderFAccountsHandler } from './application/handlers/queries/get-client-accounts-genderF.hendle';
+import { GetClientGenderMAccountsHandler } from './application/handlers/queries/get-client-accounts-genderM.hendle';
+import { GetCoachGenderMAccountsHandler } from './application/handlers/queries/get-coach-accounts-genderM.hendle';
+import { GetCoachGenderFAccountsHandler } from './application/handlers/queries/get-coach-accounts-genderF.hendle';
 
 export const CommandHandlers = [RegisterClientHandler, RegisterCoachHandler];
 export const EventHandlers = [ClientRegisteredHandler, CoachRegisteredHandler];
-export const QueryHandlers = [GetClientAccountsHandler, GetCoachAccountsHandler];
+export const QueryHandlers = [GetClientAccountsHandler, GetCoachAccountsHandler,GetClientGenderFAccountsHandler,GetClientGenderMAccountsHandler,GetCoachGenderMAccountsHandler,GetCoachGenderFAccountsHandler];
 
 @Module({
   imports: [
@@ -46,4 +50,4 @@ export const QueryHandlers = [GetClientAccountsHandler, GetCoachAccountsHandler]
     ...QueryHandlers
   ]
 })
-export class ClientsModule {}
+export class AccountModule {}

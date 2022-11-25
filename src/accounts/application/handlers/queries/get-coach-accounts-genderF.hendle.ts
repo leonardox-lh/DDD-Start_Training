@@ -1,34 +1,37 @@
 import { IQueryHandler, QueryHandler } from '@nestjs/cqrs';
 import { DataSource } from 'typeorm';
 import { ClientAccountDto } from '../../dtos/response/client-account.dto';
-import { GetClientAccounts } from '../../messages/commands/queries/get-client-accounts.query';
+import { CoachAccountDto } from '../../dtos/response/coach-account.dto';
 import { ClientMapper } from '../../mappers/client.mapper';
+import { CoachMapper } from '../../mappers/coach.mapper';
+import { GetCoachGenderFAccounts } from '../../messages/commands/queries/get-coach-accounts-genderF.query';
 
-@QueryHandler(GetClientAccounts)
-export class GetClientAccountsHandler implements IQueryHandler<GetClientAccounts> {
+@QueryHandler(GetCoachGenderFAccounts)
+export class GetCoachGenderFAccountsHandler implements IQueryHandler<GetCoachGenderFAccounts> {
   constructor(private dataSource: DataSource) {}
 
-  async execute(query: GetClientAccounts) {
+  async execute(query: GetCoachGenderFAccounts) {
     const manager = this.dataSource.createEntityManager();
     const sql = `
     SELECT 
-      id,
+     id,
       first_name as firstName,
       last_name as lastName,
       gender,
-      dni,
-      card
+      card,
+      salary
 
     FROM 
       accounts
     WHERE
-      type = 'Cl'
+      type = 'Co' AND gender = 'F'
+      
     ORDER BY
       last_name, first_name;`;
     const rows = await manager.query(sql);
     if (rows.length <= 0) return [];
-    const personClients: ClientAccountDto[] = rows.map(function (row: any) {
-      return ClientMapper.ormToClientAccountDto(row);
+    const personClients: CoachAccountDto[] = rows.map(function (row: any) {
+      return CoachMapper.ormToClientAccountDto(row);
     });
     return personClients;
   }

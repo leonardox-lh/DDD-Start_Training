@@ -22,7 +22,6 @@ CREATE TABLE IF NOT EXISTS accounts(
   UNIQUE INDEX card_usuario(card),
   UNIQUE INDEX salary_coach(salary), 
   UNIQUE INDEX dni_usuario(dni),
-  UNIQUE INDEX gender_usuario(gender),
   KEY IX_clients_created_by(created_by),
   KEY IX_clients_updated_by(updated_by),
   CONSTRAINT FK_clients_created_by FOREIGN KEY(created_by) REFERENCES users(id),

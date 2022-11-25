@@ -15,7 +15,7 @@ export class ApiController {
   }
 
   static error(response: Response, errors: AppError[]): Envelope {
-      response.status(HttpStatus.BAD_REQUEST);
+      response.status(HttpStatus.ACCEPTED);
       return Envelope.error(errors);
   }
 

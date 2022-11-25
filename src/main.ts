@@ -5,8 +5,8 @@ import { AppModule } from './app.module';
 async function bootstrap() {
   const app = await NestFactory.create(AppModule);
   const config = new DocumentBuilder()
-    .setTitle('Banking DDD API')
-    .setDescription('Banking DDD API description')
+    .setTitle('Start Training')
+    .setDescription('Start Training API description')
     .setVersion('1.0')
     .addTag('clients accounts')
     .addTag('coach accounts')

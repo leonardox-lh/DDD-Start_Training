@@ -4,8 +4,8 @@ import { Controller, Get } from '@nestjs/common';
 export class AppController {
   constructor() {}
 
-  @Get()
+  @Get('')
   get(): string {
-    return 'trabajofinal';
+    return '123';
   }
 }

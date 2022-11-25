@@ -33,4 +33,5 @@ export class ClientApplicationService {
   async getById(id: number) {
     return await this.personRepository.getById(id);
   }
+
 }

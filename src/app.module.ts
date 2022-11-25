@@ -3,7 +3,7 @@ import { AppController } from './app.controller';
 import { TypeOrmModule } from '@nestjs/typeorm';
 import { UsersModule } from './users/users.module';
 import { NotificationsModule } from './notifications/notifications.module';
-import { ClientsModule } from './accounts/accounts.module';
+import { AccountModule } from './accounts/accounts.module';
 
 
 
@@ -11,7 +11,7 @@ import { ClientsModule } from './accounts/accounts.module';
   imports: [
     TypeOrmModule.forRoot({
       type: "mysql",
-      url: 'mysql://root:root@localhost:3306/trabajofinal-patrones',
+      url: 'mysql://root:root@localhost:3306/trabajofinal',
       migrationsRun: true,
       logging: true,
       timezone: '+00:00',
@@ -30,9 +30,9 @@ import { ClientsModule } from './accounts/accounts.module';
       ],
       migrationsTableName: "migrations"
     }),
-    ClientsModule,
     UsersModule,
     NotificationsModule,
+    AccountModule,
   ],
   controllers: [AppController],
   providers: [],
